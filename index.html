@@ -99,7 +99,7 @@ html:fullscreen .control-panel,html:fullscreen .right-panel{position:static!impo
   <section class="learn-levers" id="learnLevers">
     <h2>Learn the Levers</h2>
     <p>Before you change the P&amp;L, click a concept to see what it means, where it lands, and an ALCIVIA-style example. Then jump into the simulator and test it yourself.</p>
-    <div class="lever-learning-grid" id="learningCards"></div><div class="learning-drawer" id="learningDrawer" aria-live="polite"></div>
+    <div class="lever-learning-grid" id="learningCards"></div>
   </section>
 
   <section class="simulator" id="simulator">
@@ -242,20 +242,55 @@ function createControls(){
     block.innerHTML='<div class="rangehead"><div class="range-title"><label for="r_'+key+'">'+sp.label(sc)+'</label><button class="lever-help" type="button" data-lever="'+key+'" aria-label="Explain '+sp.label(sc)+'">?</button></div><span class="rangevalue" id="v_'+key+'">'+fmtValue(state[key],sp.format)+'</span></div><div class="range-track-wrap"><span class="rangebubble" id="b_'+key+'">'+fmtValue(state[key],sp.format)+'</span><span class="rangemark" id="m_'+key+'"></span><input class="premium-range" id="r_'+key+'" type="range" min="'+lim.min+'" max="'+lim.max+'" step="'+sp.step+'" value="'+state[key]+'"><div class="rangemeta"><span>'+fmtValue(lim.min,sp.format)+'</span><span>'+fmtValue(lim.max,sp.format)+'</span></div></div>';
     c.appendChild(block);
     const input=block.querySelector('input');input.addEventListener('input',()=>{state[key]=Number(input.value);updateSlider(key);render();scheduleHeight();});
-    block.querySelector('.lever-help').addEventListener('click',()=>toggleLeverEducation(key,block));
+    block.querySelector('.lever-help').addEventListener('click',()=>openLeverEducation(key));
   });
   const actions=document.createElement('div');actions.className='actions';actions.innerHTML='<button class="btn primary" id="resetBtn" type="button">Reset scenario</button><button class="btn ghost" id="printBtn" type="button">Export / Print</button>';c.appendChild(actions);
   $('resetBtn').addEventListener('click',()=>{state={...base};createControls();render();scheduleHeight();});$('printBtn').addEventListener('click',()=>window.print());
   Object.keys(specs).forEach(updateSlider);
 }
-function toggleLeverEducation(key,block){
-  const existing=document.querySelector('.lever-inline-education');
-  if(existing && existing.dataset.lever===key){existing.remove();scheduleHeight();return;}
-  if(existing) existing.remove();
-  const sp=specs[key],edu=sp.edu,drawer=document.createElement('div');drawer.className='lever-inline-education';drawer.dataset.lever=key;
-  drawer.innerHTML='<strong>'+sp.label(scenarios[scenarioKey])+'</strong><div class="edu-row"><div class="edu-box"><span>What it means</span><strong>'+edu.meaning+'</strong></div><div class="edu-box"><span>Where it hits</span><strong>'+edu.where+'</strong></div><div class="edu-box"><span>When it rises</span><strong>'+edu.effect+'</strong></div><div class="edu-box"><span>ALCIVIA-style example</span><strong>'+edu.example+'</strong></div></div><div class="try"><strong>Try this:</strong> '+edu.try+'</div><button class="close-inline" type="button">Close explanation</button>';
-  drawer.querySelector('.close-inline').addEventListener('click',()=>{drawer.remove();scheduleHeight()});
-  block.insertAdjacentElement('afterend',drawer);scheduleHeight();
+function openEducationPopup(data){
+  const payload={
+    type:'alcivia-open-education',
+    title:data.title||'',
+    kicker:data.kicker||'LEARN THE LEVER',
+    meaning:data.meaning||'',
+    where:data.where||'',
+    effect:data.effect||'',
+    example:data.example||'',
+    tryText:data.try||''
+  };
+  if(window.parent && window.parent!==window){
+    window.parent.postMessage(payload,'*');
+    return;
+  }
+  openLocalEducationModal(payload);
+}
+function openLeverEducation(key){
+  const sp=specs[key],edu=sp.edu;
+  openEducationPopup({title:sp.label(scenarios[scenarioKey]),kicker:'BUSINESS LEVER',...edu});
+}
+function openLocalEducationModal(data){
+  let modal=document.getElementById('localEducationModal');
+  if(!modal){
+    modal=document.createElement('div');
+    modal.id='localEducationModal';
+    modal.className='lever-modal';
+    modal.innerHTML='<div class="lever-modal-card" role="dialog" aria-modal="true" aria-labelledby="localEduTitle"><div class="lever-modal-head"><div><div class="mini" id="localEduKicker"></div><h3 id="localEduTitle"></h3></div><button class="modal-close" type="button" aria-label="Close">×</button></div><div class="lever-modal-body"><div class="edu-grid"><div class="edu-cell"><span>What it means</span><strong id="localEduMeaning"></strong></div><div class="edu-cell"><span>Where it hits</span><strong id="localEduWhere"></strong></div><div class="edu-cell"><span>When it rises</span><strong id="localEduEffect"></strong></div><div class="edu-cell"><span>ALCIVIA-style example</span><strong id="localEduExample"></strong></div></div><div class="try-box"><strong>Try this</strong><span id="localEduTry"></span></div></div></div>';
+    document.body.appendChild(modal);
+    const close=()=>{modal.classList.remove('open');document.body.style.overflow=''};
+    modal.querySelector('.modal-close').addEventListener('click',close);
+    modal.addEventListener('click',e=>{if(e.target===modal)close()});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close()});
+  }
+  document.getElementById('localEduKicker').textContent=data.kicker;
+  document.getElementById('localEduTitle').textContent=data.title;
+  document.getElementById('localEduMeaning').textContent=data.meaning;
+  document.getElementById('localEduWhere').textContent=data.where;
+  document.getElementById('localEduEffect').textContent=data.effect;
+  document.getElementById('localEduExample').textContent=data.example;
+  document.getElementById('localEduTry').textContent=data.tryText;
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
 }
 function updateSlider(key){const input=$('r_'+key);if(!input)return;const min=Number(input.min),max=Number(input.max),v=Number(input.value),baseV=Number(base[key]);const p=max===min?0:(v-min)/(max-min)*100,bp=max===min?0:(baseV-min)/(max-min)*100;input.style.setProperty('--fill',p+'%');$('b_'+key).style.setProperty('--bubble-left',Math.max(3,Math.min(97,p))+'%');$('b_'+key).textContent=fmtValue(v,specs[key].format);$('m_'+key).style.setProperty('--mark-left',Math.max(2,Math.min(98,bp))+'%');$('v_'+key).textContent=fmtValue(v,specs[key].format)}
 function deltaClass(n){return n>0?'pos':n<0?'neg':'neutral'}
@@ -273,13 +308,19 @@ function render(){
 }
 function renderWaterfall(c){const vals=[['Revenue',c.revenue,'revbar'],['Direct costs',c.directCosts,'costbar'],['Gross margin',c.grossMargin,'gmbar'],['EBITDA',c.ebitda,'ebitdabar'],['Net income',c.netIncome,'netbar']];const max=Math.max(1,...vals.map(x=>Math.abs(x[1])));$('waterfallRows').innerHTML=vals.map(([l,v,cl])=>'<div class="wfrow"><div class="wflabel">'+l+'</div><div class="wftrack"><div class="wfbar '+cl+'" style="width:'+Math.max(0,Math.min(100,Math.abs(v)/max*100))+'%"></div></div><div class="wfval">'+money(v)+'</div></div>').join('')}
 function showLearningConcept(data){
-  const d=$('learningDrawer');
-  d.innerHTML='<h3>'+data.title+'</h3><p><strong>What it means:</strong> '+data.meaning+'</p><p><strong>Where it hits:</strong> '+data.where+'</p><p><strong>When it rises:</strong> '+data.effect+'</p><p><strong>ALCIVIA-style example:</strong> '+data.example+'</p><div class="try"><strong>Try this:</strong> '+data.try+'</div>';
-  d.classList.add('open');d.scrollIntoView({behavior:'smooth',block:'nearest'});scheduleHeight();
+  openEducationPopup(data);
 }
 function buildLearningCards(){const root=$('learningCards');root.innerHTML='';learningConcepts.forEach((x)=>{const b=document.createElement('button');b.className='learn-card';b.type='button';b.innerHTML='<span class="mini">'+x.kicker+'</span><strong>'+x.title+'</strong><span>'+x.meaning+'</span>';b.addEventListener('click',()=>showLearningConcept(x));root.appendChild(b)})}
 async function toggleFullscreen(){try{if(!document.fullscreenElement){await document.documentElement.requestFullscreen()}else{await document.exitFullscreen()}}catch(e){console.warn('Fullscreen unavailable',e)}}
-function updateFullscreenLabel(){const text=document.fullscreenElement?'✕ Exit Full Screen':'⛶ Full Screen';$('fullscreenBtn').textContent=text}
+function updateFullscreenLabel(){
+  const active=!!document.fullscreenElement;
+  const text=active?'✕ Exit Full Screen':'⛶ Full Screen';
+  $('fullscreenBtn').textContent=text;
+  document.documentElement.style.overflowY=active?'auto':'';
+  document.body.style.overflowY=active?'auto':'';
+  window.parent.postMessage({type:'alcivia-fullscreen-state',active:active},'*');
+  if(!active)setTimeout(()=>sendHeight(true),120);
+}
 function updateBusinessContext(){const s=scenarios[scenarioKey];$('businessTitle').textContent=s.label;$('businessCopy').textContent=s.short+'. The figures below are fictional and meant to make the P&L relationships easy to explore.';$('businessTags').innerHTML=s.tags.map(t=>'<span class="business-tag">'+t+'</span>').join('');$('pnlPanelTitle').textContent=s.label+' P&L'}
 function loadScenario(key){scenarioKey=key;base={...scenarios[key]};state={...base};updateBusinessContext();createControls();render();scheduleHeight()}
 $('scenario').addEventListener('change',e=>loadScenario(e.target.value));$('printTop').addEventListener('click',()=>window.print());$('fullscreenBtn').addEventListener('click',toggleFullscreen);document.addEventListener('fullscreenchange',updateFullscreenLabel);document.querySelectorAll('[data-scroll]').forEach(b=>b.addEventListener('click',()=>document.querySelector(b.dataset.scroll)?.scrollIntoView({behavior:'smooth'})));document.querySelectorAll('.note button').forEach(b=>b.addEventListener('click',()=>{b.parentElement.classList.toggle('open');scheduleHeight()}));buildLearningCards();
