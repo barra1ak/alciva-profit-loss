@@ -47,14 +47,27 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 .disclaimer{margin-top:18px;padding:15px 17px;border-radius:14px;background:#f1efe6;color:var(--muted);font-size:12px;line-height:1.5;border:1px solid #e3dfd0}
 .footer{padding:32px 64px;background:var(--deep);color:white}.footer strong{font-size:20px}.footer p{max-width:760px;color:rgba(255,255,255,.72);line-height:1.5;margin-bottom:0}
 .top-actions{display:flex;gap:8px;flex-wrap:wrap}.learn-levers{padding:30px 64px 8px}.learn-levers h2{font-size:32px;letter-spacing:-.04em;margin:0 0 8px}.learn-levers>p{color:var(--muted);margin:0 0 18px;max-width:820px;line-height:1.55}.lever-learning-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.learn-card{border:1px solid var(--line);background:var(--paper);border-radius:17px;padding:17px;text-align:left;color:var(--ink);min-height:145px;transition:.16s}.learn-card:hover{border-color:#a7bea5;transform:translateY(-1px)}.learn-card .mini{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--green);font-weight:850}.learn-card strong{display:block;font-size:17px;margin:8px 0 6px}.learn-card span{display:block;color:var(--muted);font-size:12px;line-height:1.45}
-.lever-tabs{display:flex;gap:7px;flex-wrap:wrap;padding:12px 14px;border-bottom:1px solid var(--line);background:#f7f8f4}.lever-tab{border:1px solid var(--line);background:white;color:var(--deep);border-radius:999px;padding:8px 11px;font-size:11px;font-weight:850}.lever-tab.active{background:var(--deep);color:white;border-color:var(--deep)}.lever-group{display:none}.lever-group.active{display:block}.range-title{display:flex;align-items:center;gap:7px;min-width:0}.lever-help{width:25px;height:25px;border-radius:50%;border:1px solid #bfd0bc;background:#f3f8f1;color:var(--green);font-weight:900;line-height:1;padding:0;flex:0 0 auto}.rangeblock{padding-bottom:3px}.rangeblock+.rangeblock{border-top:1px solid #eef1ec;padding-top:18px}.rangeblock .hint{display:none}
+ .range-title{display:flex;align-items:center;gap:7px;min-width:0}
+.lever-inline-education{margin:8px 0 18px;padding:15px 16px;border:1px solid #cfe0cc;background:linear-gradient(135deg,#f2f8ef,#fffdf8);border-radius:16px}
+.lever-inline-education .edu-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.lever-inline-education .edu-box{padding:12px;border:1px solid var(--line);background:white;border-radius:12px}
+.lever-inline-education .edu-box span{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800;margin-bottom:4px}
+.lever-inline-education .edu-box strong{font-size:12px;line-height:1.45}
+.lever-inline-education .try{margin-top:10px;padding:11px 12px;border-radius:12px;background:#fff3df;border:1px solid #ead4a4;color:#684a12;font-size:12px;line-height:1.45}
+.lever-inline-education .close-inline{margin-top:10px;border:0;background:transparent;color:var(--green);font-weight:800;padding:4px 0}
+
 .control-panel .panelbody{padding-top:0}.workspace-tip{padding:10px 14px;background:#eef5e9;border-bottom:1px solid #d7e4d4;color:#4d6252;font-size:11px;line-height:1.45}.workspace-tip strong{color:var(--deep)}
 .lever-modal{position:fixed;inset:0;background:rgba(18,40,24,.48);z-index:200;display:none;align-items:center;justify-content:center;padding:22px}.lever-modal.open{display:flex}.lever-modal-card{width:min(680px,100%);max-height:86vh;overflow:auto;background:var(--paper);border-radius:24px;border:1px solid var(--line);box-shadow:0 28px 80px rgba(14,39,23,.28)}.lever-modal-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;padding:22px 24px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,#eef5e9,#faf7ec)}.lever-modal-head .mini{font-size:10px;text-transform:uppercase;letter-spacing:.11em;color:var(--green);font-weight:850}.lever-modal-head h3{font-size:27px;letter-spacing:-.035em;margin:5px 0 0}.modal-close{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:white;color:var(--deep);font-size:20px}.lever-modal-body{padding:22px 24px}.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.edu-cell{padding:14px;border:1px solid var(--line);background:white;border-radius:14px}.edu-cell span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}.edu-cell strong{display:block;margin-top:5px;line-height:1.45}.try-box{margin-top:14px;padding:15px 16px;background:#fff3df;border:1px solid #ead4a4;border-radius:14px;color:#684a12}.try-box strong{display:block;margin-bottom:4px}.modal-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
-body.large-mode .hero,body.large-mode .introgrid,body.large-mode .learn-levers,body.large-mode .notes,body.large-mode .footer{display:none}body.large-mode .simulator{padding:24px 28px 34px}body.large-mode .shell{max-width:none;box-shadow:none}body.large-mode .topbar{position:sticky;top:0}
+
+.learning-drawer{display:none;margin-top:14px;padding:18px;border:1px solid #cfe0cc;background:linear-gradient(135deg,#f2f8ef,#fffdf8);border-radius:18px}
+.learning-drawer.open{display:block}.learning-drawer h3{margin:0 0 8px;font-size:22px}.learning-drawer p{margin:6px 0;color:var(--muted);line-height:1.5;font-size:13px}.learning-drawer .try{margin-top:12px;padding:12px 14px;border-radius:12px;background:#fff3df;border:1px solid #ead4a4;color:#684a12;font-size:13px}
+html:fullscreen,html:fullscreen body{overflow-y:auto!important;overflow-x:hidden!important;height:auto!important;min-height:100%!important}
+html:fullscreen .shell{min-height:100%!important}
+html:fullscreen .control-panel,html:fullscreen .right-panel{position:static!important;top:auto!important;max-height:none!important;overflow:visible!important}
 @media(min-width:1051px){.workgrid{grid-template-columns:minmax(390px,.92fr) minmax(0,1.38fr)}.control-panel,.right-panel{align-self:start;position:sticky;top:72px}.control-panel .panelbody{min-height:390px;max-height:calc(100vh - 310px);overflow:auto}.right-panel{max-height:calc(100vh - 92px);overflow:auto}.right-panel .panelbody{padding-top:16px}.lever-learning-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:1050px){.kpigrid{grid-template-columns:repeat(3,1fr)}.workgrid{grid-template-columns:1fr}.notegrid{grid-template-columns:1fr}.introgrid{grid-template-columns:1fr}.lever-learning-grid{grid-template-columns:1fr 1fr}.scenario-box{min-width:220px}.business-context{grid-template-columns:1fr}.business-tags{justify-content:flex-start}.learn-levers{padding-left:24px;padding-right:24px}}
 @media(max-width:720px){.brand{min-width:auto}.brand .txt{display:none}.topmeta{display:none}.top-actions .ghost{display:none}.hero{padding:52px 24px 44px}.hero p{font-size:17px}.introgrid,.simulator,.notes{padding-left:24px;padding-right:24px}.sectionhead{display:block}.scenario-box{margin-top:18px}.kpigrid{grid-template-columns:1fr 1fr}.footer{padding:28px 24px}.wfrow{grid-template-columns:92px 1fr 72px}.panelbody{padding:18px}.panelhead{padding:17px 18px}}
-@media(max-width:460px){.kpigrid,.lever-learning-grid,.edu-grid{grid-template-columns:1fr}.hero h1{font-size:46px}.topbar{padding:10px 14px}.simulator{padding-top:34px}}
+@media(max-width:460px){.kpigrid,.lever-learning-grid,.edu-grid,.lever-inline-education .edu-row{grid-template-columns:1fr}.hero h1{font-size:46px}.topbar{padding:10px 14px}.simulator{padding-top:34px}}
 @media print{.topbar,.heroactions,.actions{display:none!important}.shell{box-shadow:none;max-width:none}.panel,.kpi,.introcard,.note{break-inside:avoid}}
 </style>
 </head>
@@ -63,7 +76,7 @@ body.large-mode .hero,body.large-mode .introgrid,body.large-mode .learn-levers,b
   <div class="topbar">
     <div class="brand"><div class="mark"><span>A</span></div><span class="txt">ALCIVIA MINI MBA</span></div>
     <div class="topmeta"><strong>Run the Numbers</strong> · Interactive P&amp;L simulator</div>
-    <div class="top-actions"><button class="btn ghost" id="openLargeView" type="button">↗ Large View</button><button class="btn ghost" id="fullscreenBtn" type="button">⛶ Full Screen</button><button class="btn ghost" id="printTop" type="button">Export / Print</button></div>
+    <div class="top-actions"><button class="btn ghost" id="fullscreenBtn" type="button">⛶ Full Screen</button><button class="btn ghost" id="printTop" type="button">Export / Print</button></div>
   </div>
 
   <section class="hero">
@@ -72,7 +85,7 @@ body.large-mode .hero,body.large-mode .introgrid,body.large-mode .learn-levers,b
     <p>Choose an ALCIVIA business, pull the levers, and watch the P&amp;L react. See how volume, pricing, product cost, labor, facilities, and financing shape operating performance.</p>
     <div class="heroactions">
       <button class="btn primary" data-scroll="#simulator">Start the simulator →</button>
-      <button class="btn light" data-scroll="#learnLevers">Learn the levers</button><button class="btn light" id="heroLargeView" type="button">↗ Open Large View</button>
+      <button class="btn light" data-scroll="#learnLevers">Learn the levers</button>
     </div>
     <small>All figures are fictional training examples designed to illustrate ALCIVIA-style business economics—not actual ALCIVIA financial results.</small>
   </section>
@@ -86,7 +99,7 @@ body.large-mode .hero,body.large-mode .introgrid,body.large-mode .learn-levers,b
   <section class="learn-levers" id="learnLevers">
     <h2>Learn the Levers</h2>
     <p>Before you change the P&amp;L, click a concept to see what it means, where it lands, and an ALCIVIA-style example. Then jump into the simulator and test it yourself.</p>
-    <div class="lever-learning-grid" id="learningCards"></div>
+    <div class="lever-learning-grid" id="learningCards"></div><div class="learning-drawer" id="learningDrawer" aria-live="polite"></div>
   </section>
 
   <section class="simulator" id="simulator">
@@ -112,7 +125,7 @@ body.large-mode .hero,body.large-mode .introgrid,body.large-mode .learn-levers,b
       <div class="panel control-panel">
         <div class="panelhead"><h3>Adjust the business levers</h3><p>Work one group at a time. The gold marker shows the original base-case assumption.</p></div>
         <div class="workspace-tip"><strong>Tip:</strong> the P&amp;L at right updates immediately. Use the <strong>?</strong> buttons when you want the meaning—not a paragraph under every slider.</div>
-        <div class="lever-tabs" id="leverTabs"></div><div class="panelbody" id="controls"></div>
+        <div class="panelbody" id="controls"></div>
       </div>
 
       <div class="panel right-panel">
@@ -143,12 +156,6 @@ body.large-mode .hero,body.large-mode .introgrid,body.large-mode .learn-levers,b
   </section>
 
   <footer class="footer"><strong>All. Together. Financially Responsible.</strong><p>Understanding the P&amp;L makes everyday business decisions easier to see. The point is not to become an accountant—it is to understand how the levers connect.</p></footer>
-</div>
-<div class="lever-modal" id="leverModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="leverModalTitle">
-  <div class="lever-modal-card">
-    <div class="lever-modal-head"><div><div class="mini" id="leverModalKicker">LEARN THE LEVER</div><h3 id="leverModalTitle">Lever</h3></div><button class="modal-close" id="leverModalClose" type="button" aria-label="Close">×</button></div>
-    <div class="lever-modal-body"><div class="edu-grid"><div class="edu-cell"><span>What it means</span><strong id="eduMeaning"></strong></div><div class="edu-cell"><span>Where it hits</span><strong id="eduWhere"></strong></div><div class="edu-cell"><span>When it rises</span><strong id="eduEffect"></strong></div><div class="edu-cell"><span>ALCIVIA-style example</span><strong id="eduExample"></strong></div></div><div class="try-box"><strong>Try this</strong><div id="eduTry"></div></div><div class="modal-actions"><button class="btn primary" id="eduTryBtn" type="button">Try it in the simulator →</button><button class="btn ghost" id="eduCloseBtn" type="button">Close</button></div></div>
-  </div>
 </div>
 <script>
 (function(){
@@ -198,8 +205,6 @@ const specs = {
   interest:{group:'below',label:()=> 'Interest Expense',minFactor:.4,maxFactor:1.8,step:2500,format:'money0',edu:{meaning:'The cost of borrowed money.',where:'Below EBIT → Pre-Tax Income',effect:'Higher interest reduces pre-tax income and net income but does not change EBITDA or EBIT.',example:'Financing tied to facilities, fleet, equipment, working capital, or other borrowed funds.',try:'Increase interest and watch which lines stay unchanged above pre-tax income.'}},
   taxRate:{group:'below',label:()=> 'Tax Rate',min:0,max:.4,step:.01,format:'percent',edu:{meaning:'A simplified tax assumption applied only to positive pre-tax income in this teaching model.',where:'Pre-Tax Income → Net Income',effect:'A higher tax rate reduces net income when pre-tax income is positive.',example:'A teaching assumption—not ALCIVIA tax guidance or an actual effective tax rate.',try:'Move the tax rate and notice that revenue, gross margin, EBITDA, and EBIT do not change.'}}
 }
-const leverGroups={sales:{label:'Sales & Volume'},direct:{label:'Direct Costs'},operating:{label:'Operating Costs'},below:{label:'Below the Line'}};
-let activeGroup='sales';
 const learningConcepts=[
   {title:'Revenue',kicker:'TOP LINE',meaning:'The total value of sales or service revenue before costs are subtracted.',where:'Top of the P&L',effect:'More revenue helps only if the economics of the additional business are attractive.',example:'Feed, propane, fuel/lubricant, and grain-related revenue.',try:'Raise volume while holding price and unit cost steady.'},
   {title:'Gross Margin',kicker:'CORE ECONOMICS',meaning:'Revenue minus direct product / handling costs.',where:'After direct costs',effect:'It is the pool of dollars available to pay operating expenses and everything below them.',example:'The spread left after the direct economics of product or handling.',try:'Move price and direct cost in opposite directions and compare the effect.'},
@@ -232,21 +237,26 @@ function fmtValue(v,type){if(type==='money0')return money(v);if(type==='money2')
 function limits(key,s){const sp=specs[key],v=s[key];if('min' in sp)return{min:sp.min,max:sp.max};let min=v*sp.minFactor,max=v*sp.maxFactor;if(sp.step>=1){min=Math.max(0,Math.round(min/sp.step)*sp.step);max=Math.round(max/sp.step)*sp.step}return{min,max}}
 function createControls(){
   const c=$('controls');c.innerHTML='';const sc=scenarios[scenarioKey];
-  const tabs=$('leverTabs');tabs.innerHTML='';
-  Object.entries(leverGroups).forEach(([key,g])=>{const b=document.createElement('button');b.type='button';b.className='lever-tab'+(key===activeGroup?' active':'');b.textContent=g.label;b.dataset.group=key;b.addEventListener('click',()=>{activeGroup=key;renderControlGroup();scheduleHeight()});tabs.appendChild(b)});
-  const groups={};Object.keys(leverGroups).forEach(g=>{const wrap=document.createElement('div');wrap.className='lever-group';wrap.dataset.group=g;groups[g]=wrap;c.appendChild(wrap)});
   Object.keys(specs).forEach(key=>{
     const sp=specs[key],lim=limits(key,base);const block=document.createElement('div');block.className='rangeblock';
     block.innerHTML='<div class="rangehead"><div class="range-title"><label for="r_'+key+'">'+sp.label(sc)+'</label><button class="lever-help" type="button" data-lever="'+key+'" aria-label="Explain '+sp.label(sc)+'">?</button></div><span class="rangevalue" id="v_'+key+'">'+fmtValue(state[key],sp.format)+'</span></div><div class="range-track-wrap"><span class="rangebubble" id="b_'+key+'">'+fmtValue(state[key],sp.format)+'</span><span class="rangemark" id="m_'+key+'"></span><input class="premium-range" id="r_'+key+'" type="range" min="'+lim.min+'" max="'+lim.max+'" step="'+sp.step+'" value="'+state[key]+'"><div class="rangemeta"><span>'+fmtValue(lim.min,sp.format)+'</span><span>'+fmtValue(lim.max,sp.format)+'</span></div></div>';
-    groups[sp.group].appendChild(block);
+    c.appendChild(block);
     const input=block.querySelector('input');input.addEventListener('input',()=>{state[key]=Number(input.value);updateSlider(key);render();scheduleHeight();});
-    block.querySelector('.lever-help').addEventListener('click',()=>openLeverEducation(key));
+    block.querySelector('.lever-help').addEventListener('click',()=>toggleLeverEducation(key,block));
   });
   const actions=document.createElement('div');actions.className='actions';actions.innerHTML='<button class="btn primary" id="resetBtn" type="button">Reset scenario</button><button class="btn ghost" id="printBtn" type="button">Export / Print</button>';c.appendChild(actions);
   $('resetBtn').addEventListener('click',()=>{state={...base};createControls();render();scheduleHeight();});$('printBtn').addEventListener('click',()=>window.print());
-  Object.keys(specs).forEach(updateSlider);renderControlGroup();
+  Object.keys(specs).forEach(updateSlider);
 }
-function renderControlGroup(){document.querySelectorAll('.lever-group').forEach(g=>g.classList.toggle('active',g.dataset.group===activeGroup));document.querySelectorAll('.lever-tab').forEach(b=>b.classList.toggle('active',b.dataset.group===activeGroup))}
+function toggleLeverEducation(key,block){
+  const existing=document.querySelector('.lever-inline-education');
+  if(existing && existing.dataset.lever===key){existing.remove();scheduleHeight();return;}
+  if(existing) existing.remove();
+  const sp=specs[key],edu=sp.edu,drawer=document.createElement('div');drawer.className='lever-inline-education';drawer.dataset.lever=key;
+  drawer.innerHTML='<strong>'+sp.label(scenarios[scenarioKey])+'</strong><div class="edu-row"><div class="edu-box"><span>What it means</span><strong>'+edu.meaning+'</strong></div><div class="edu-box"><span>Where it hits</span><strong>'+edu.where+'</strong></div><div class="edu-box"><span>When it rises</span><strong>'+edu.effect+'</strong></div><div class="edu-box"><span>ALCIVIA-style example</span><strong>'+edu.example+'</strong></div></div><div class="try"><strong>Try this:</strong> '+edu.try+'</div><button class="close-inline" type="button">Close explanation</button>';
+  drawer.querySelector('.close-inline').addEventListener('click',()=>{drawer.remove();scheduleHeight()});
+  block.insertAdjacentElement('afterend',drawer);scheduleHeight();
+}
 function updateSlider(key){const input=$('r_'+key);if(!input)return;const min=Number(input.min),max=Number(input.max),v=Number(input.value),baseV=Number(base[key]);const p=max===min?0:(v-min)/(max-min)*100,bp=max===min?0:(baseV-min)/(max-min)*100;input.style.setProperty('--fill',p+'%');$('b_'+key).style.setProperty('--bubble-left',Math.max(3,Math.min(97,p))+'%');$('b_'+key).textContent=fmtValue(v,specs[key].format);$('m_'+key).style.setProperty('--mark-left',Math.max(2,Math.min(98,bp))+'%');$('v_'+key).textContent=fmtValue(v,specs[key].format)}
 function deltaClass(n){return n>0?'pos':n<0?'neg':'neutral'}
 function render(){
@@ -262,18 +272,17 @@ function render(){
   $('changeNarrative').textContent=Math.abs(top[1])<1?'You are still at the base case. Move any lever to see how the P&L responds.':top[0]+' has moved the most: '+(top[1]>0?'+':'')+money(top[1]).replace('−','-')+' versus the base case. Trace the change back to the business lever you moved.';
 }
 function renderWaterfall(c){const vals=[['Revenue',c.revenue,'revbar'],['Direct costs',c.directCosts,'costbar'],['Gross margin',c.grossMargin,'gmbar'],['EBITDA',c.ebitda,'ebitdabar'],['Net income',c.netIncome,'netbar']];const max=Math.max(1,...vals.map(x=>Math.abs(x[1])));$('waterfallRows').innerHTML=vals.map(([l,v,cl])=>'<div class="wfrow"><div class="wflabel">'+l+'</div><div class="wftrack"><div class="wfbar '+cl+'" style="width:'+Math.max(0,Math.min(100,Math.abs(v)/max*100))+'%"></div></div><div class="wfval">'+money(v)+'</div></div>').join('')}
-function openEducation(data,leverKey=null){
-  $('leverModalKicker').textContent=data.kicker||'LEARN THE LEVER';$('leverModalTitle').textContent=data.title||specs[leverKey].label(scenarios[scenarioKey]);$('eduMeaning').textContent=data.meaning;$('eduWhere').textContent=data.where;$('eduEffect').textContent=data.effect;$('eduExample').textContent=data.example;$('eduTry').textContent=data.try;$('leverModal').dataset.lever=leverKey||'';$('leverModal').classList.add('open');$('leverModal').setAttribute('aria-hidden','false');scheduleHeight();
+function showLearningConcept(data){
+  const d=$('learningDrawer');
+  d.innerHTML='<h3>'+data.title+'</h3><p><strong>What it means:</strong> '+data.meaning+'</p><p><strong>Where it hits:</strong> '+data.where+'</p><p><strong>When it rises:</strong> '+data.effect+'</p><p><strong>ALCIVIA-style example:</strong> '+data.example+'</p><div class="try"><strong>Try this:</strong> '+data.try+'</div>';
+  d.classList.add('open');d.scrollIntoView({behavior:'smooth',block:'nearest'});scheduleHeight();
 }
-function openLeverEducation(key){const sp=specs[key];openEducation({title:sp.label(scenarios[scenarioKey]),...sp.edu},key)}
-function closeEducation(){$('leverModal').classList.remove('open');$('leverModal').setAttribute('aria-hidden','true')}
-function buildLearningCards(){const root=$('learningCards');root.innerHTML='';learningConcepts.forEach((x,i)=>{const b=document.createElement('button');b.className='learn-card';b.type='button';b.innerHTML='<span class="mini">'+x.kicker+'</span><strong>'+x.title+'</strong><span>'+x.meaning+'</span>';b.addEventListener('click',()=>openEducation(x,null));root.appendChild(b)})}
-function openLargeView(){const u=new URL(window.location.href);u.searchParams.set('mode','sim');u.hash='simulator';const w=window.open(u.toString(),'_blank','noopener,noreferrer');if(!w)window.location.href=u.toString()}
-async function toggleFullscreen(){try{if(!document.fullscreenElement){await document.documentElement.requestFullscreen()}else{await document.exitFullscreen()}}catch(e){openLargeView()}}
+function buildLearningCards(){const root=$('learningCards');root.innerHTML='';learningConcepts.forEach((x)=>{const b=document.createElement('button');b.className='learn-card';b.type='button';b.innerHTML='<span class="mini">'+x.kicker+'</span><strong>'+x.title+'</strong><span>'+x.meaning+'</span>';b.addEventListener('click',()=>showLearningConcept(x));root.appendChild(b)})}
+async function toggleFullscreen(){try{if(!document.fullscreenElement){await document.documentElement.requestFullscreen()}else{await document.exitFullscreen()}}catch(e){console.warn('Fullscreen unavailable',e)}}
 function updateFullscreenLabel(){const text=document.fullscreenElement?'✕ Exit Full Screen':'⛶ Full Screen';$('fullscreenBtn').textContent=text}
 function updateBusinessContext(){const s=scenarios[scenarioKey];$('businessTitle').textContent=s.label;$('businessCopy').textContent=s.short+'. The figures below are fictional and meant to make the P&L relationships easy to explore.';$('businessTags').innerHTML=s.tags.map(t=>'<span class="business-tag">'+t+'</span>').join('');$('pnlPanelTitle').textContent=s.label+' P&L'}
 function loadScenario(key){scenarioKey=key;base={...scenarios[key]};state={...base};updateBusinessContext();createControls();render();scheduleHeight()}
-$('scenario').addEventListener('change',e=>loadScenario(e.target.value));$('printTop').addEventListener('click',()=>window.print());$('openLargeView').addEventListener('click',openLargeView);$('heroLargeView').addEventListener('click',openLargeView);$('fullscreenBtn').addEventListener('click',toggleFullscreen);document.addEventListener('fullscreenchange',updateFullscreenLabel);$('leverModalClose').addEventListener('click',closeEducation);$('eduCloseBtn').addEventListener('click',closeEducation);$('leverModal').addEventListener('click',e=>{if(e.target===$('leverModal'))closeEducation()});$('eduTryBtn').addEventListener('click',()=>{const key=$('leverModal').dataset.lever;if(key&&specs[key])activeGroup=specs[key].group;closeEducation();renderControlGroup();$('simulator').scrollIntoView({behavior:'smooth'});scheduleHeight()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeEducation()});document.querySelectorAll('[data-scroll]').forEach(b=>b.addEventListener('click',()=>document.querySelector(b.dataset.scroll)?.scrollIntoView({behavior:'smooth'})));document.querySelectorAll('.note button').forEach(b=>b.addEventListener('click',()=>{b.parentElement.classList.toggle('open');scheduleHeight()}));buildLearningCards();if(new URLSearchParams(location.search).get('mode')==='sim')document.body.classList.add('large-mode');
+$('scenario').addEventListener('change',e=>loadScenario(e.target.value));$('printTop').addEventListener('click',()=>window.print());$('fullscreenBtn').addEventListener('click',toggleFullscreen);document.addEventListener('fullscreenchange',updateFullscreenLabel);document.querySelectorAll('[data-scroll]').forEach(b=>b.addEventListener('click',()=>document.querySelector(b.dataset.scroll)?.scrollIntoView({behavior:'smooth'})));document.querySelectorAll('.note button').forEach(b=>b.addEventListener('click',()=>{b.parentElement.classList.toggle('open');scheduleHeight()}));buildLearningCards();
 
 let heightTimer=null,lastHeight=0;
 function pageHeight(){const shell=document.querySelector('.shell');return Math.ceil(Math.max(shell?shell.scrollHeight:0,document.body.scrollHeight,document.documentElement.scrollHeight))}
